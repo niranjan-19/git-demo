@@ -1,0 +1,107 @@
+git --
+
+reset vs revert 
+
+Git hard reser vs soft reset
+
+git renaming vs os renaming 
+
+git commit --amend ---> to amend /change commit message
+
+
+git renaming -- file is in staging area --- needs a commit --- git mv first second 
+
+OS renaming -- two actions --- old file gets deleted -- new file is untracked ---git add -A ---- to add file recursively
+
+To get back to original name --
+instead of git reset -- use git mv again to get clean working directory 
+
+Deleting files 
+
+Cannot use git rm for untracked file--- use rm -- bash level command -- will get clean WD
+
+git checkout -- file -------   updates the working directory instead of the stage---- restore the file in WD 
+
+
+Alias Creation
+
+
+git config --global alias.hist "log --all --graph --oneline --decorate"
+
+hist === alias 
+
+Fast Forwarding merges
+
+
+Git Rebase vs merge ----difference 
+Video ::   https://youtu.be/f1wnYdLEpgI
+
+git rebase --continue  :  command is used to continue the rebasing process after resolving a merge conflict
+
+
+Git Pull vs fetch :
+git pull copies changes from a remote repository directly into your working directory, while git fetch does not. The git fetch command only copies changes into your local Git repo. 
+
+https://itknowledgeexchange.techtarget.com/coffee-talk/files/2023/05/gf03.gif
+
+
+Git stash is a command that allows you to temporarily save your uncommitted changes and revert your working directory to match the HEAD commit. 
+
+https://scaler.com/topics/images/git-stash-pop.webp
+
+
+git stash apply vs pop
+git stash pop throws away the (topmost, by default) stash after applying it, whereas git stash apply leaves it in the stash list for possible later reuse (or you can then git stash drop it).
+git stash apply + drop == pop 
+
+
+Git stash -- only applies to files that are being tracked.
+To include untracked files --
+git stash -u 
+
+Stash index -- starts from zero -- last stash is at first index
+
+git stash show stash@{1}
+to show stash from index 1 
+
+git stash branch new branch
+for creating a new branch for changes in stash
+
+git stash clear -- 
+to permanently remove the changes 
+
+Git Tag :::::
+
+Tags can be used for a variety of purposes. For example, you can use them to:
+Mark releases of your project.
+Mark milestones in your project's development.
+Create checkpoints that you can go back to if you need to.
+
+Tag is attached to commit --can be refrence point in histoy of commits
+
+git show myTag --- will show commit details of commit tagged to myTag
+
+Tags --lightweight and annotated
+
+Annotated ===
+git tag -a <tagname>
+
+To add tag to specific commit :
+
+ git tag -a <tagname> <commit id>
+
+To Update tag :
+git tag -a <tagname> -f <commit id>
+  
+To Push all tags in one go to Github: 
+git push origin master --tags
+
+To deleted a tag from Github :
+git push origin :<tagname>
+
+Git reflog is a command that records the history of updates to the tip of branches and other references in the local repository. Reflogs are useful in various Git commands, to specify the old value of a reference. For example, HEAD@{2} means "where HEAD used to be two moves ago"
+
+to maintain an accurate running history of modifications made to your repository's HEAD pointer ====>
+
+What is git upstream vs git origin?
+To make a copy of this original repository into a user's account, git provides you an option called forking. Once forked, the original repository is referred to as upstream and the forked repository is referred to as the origin. By default, the tracking will be only on the origin.
